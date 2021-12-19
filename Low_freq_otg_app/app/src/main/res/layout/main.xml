@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+/**
+ * 本APP所有容之智慧財權，均為蝸牛手建館所有，包括文字、照片、圖片、軟體程式碼，皆受中華民國著作權法、商標法、
+ * 公平交易法與其他相關法令之保障，請尊重智慧財權並遵守法令規範，請勿自行使用、轉載、修改、重製、發行、公開發表、教學、散佈，
+ * 若需此方面的使用或服務，請務必事先與蝸牛手建館人員接洽，並且取得授權。
+ */
+ -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#202020">
+
+    <!-- Read byte -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="1.5dip"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:background="#202020"
+        android:tag="Read block" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="強度"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/power_text"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp"
+            android:textSize="50dp"
+            android:layout_weight="1"
+            android:background="#0877A6"
+            android:focusableInTouchMode="false"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="1.5dip"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:background="#202020"
+        android:tag="Read block" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="模式"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/mode_text"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp"
+            android:textSize="50dp"
+            android:layout_weight="1"
+            android:background="#0877A6"
+            android:focusableInTouchMode="false"
+            android:gravity="center" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="1.5dip"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:background="#202020"
+        android:tag="Read block" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="貼片"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/state_text"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp"
+            android:textSize="50dp"
+            android:layout_weight="1"
+            android:background="#0877A6"
+            android:focusableInTouchMode="false"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="3dip"
+        android:layout_weight="1"
+        android:background="#202020"
+        android:tag="Write block" >
+            <Button
+                android:id="@+id/connect_btn"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="30dp"
+                android:background="@drawable/button_pattern"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                android:text="裝置連線" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="3dip"
+        android:layout_weight="1"
+        android:visibility="gone"
+        android:background="#202020"
+        android:tag="Write block" >
+
+            <Button
+                android:id="@+id/trunon_btn"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="30dp"
+                android:background="@drawable/button_pattern"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                android:text="開啟" />
+
+            <Button
+                android:id="@+id/trunoff_btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/button_pattern"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                android:text="關閉"
+                android:textSize="30dp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="3dip"
+        android:layout_weight="1"
+        android:background="#202020"
+        android:tag="Write block"
+        android:weightSum="5">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="3"
+            android:orientation="horizontal"
+            android:tag="configure block" >
+
+            <Button
+                android:id="@+id/add_power_btn"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="30dp"
+                android:background="@drawable/button_pattern"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                android:text="＋" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="強度"
+                android:visibility="gone"
+                android:textSize="20dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/minus_power_btn"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="2"
+                android:background="@drawable/button_pattern"
+                android:gravity="center"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:textSize="30dp"
+                android:scaleType="centerInside"
+                android:text="－" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
