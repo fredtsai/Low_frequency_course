@@ -28,14 +28,14 @@ import static java.lang.Thread.sleep;
 public class MainActivity extends Activity {
 
     private static final String ACTION_USB_PERMISSION = "cn.wch.wchusbdriver.USB_PERMISSION";
-    //Start button here start flag
+    private int start_flag=0;
 
     private EditText power_text, mode_text, state_text;
     private boolean isOpen;
     private Handler handler;
     private MainActivity activity;
 
-    private Button AddPowerBtn, MinusPowerBtn, ConnectBtn, TurnOnBtn, TurnOffBtn; //Start button here
+    private Button AddPowerBtn, MinusPowerBtn, ConnectBtn, TurnOnBtn, TurnOffBtn, StartBtn;
 
     public byte[] writeBuffer;
     public byte[] readBuffer;
@@ -93,7 +93,7 @@ public class MainActivity extends Activity {
                 if (UsbManager.ACTION_USB_DEVICE_DETACHED.equals(action)) {
                     ConnectBtn.setText("連線至低週波裝置");
                     ConnectBtn.setEnabled(true);
-                    //Start button here
+                    StartBtn.setEnabled(false);
                     AddPowerBtn.setEnabled(false);
                     MinusPowerBtn.setEnabled(false);
                     TurnOnBtn.setEnabled(false);
@@ -109,7 +109,23 @@ public class MainActivity extends Activity {
 
         registerReceiver(mUsbReceiver, usbDeviceStateFilter);
 
-        //Start button here and flag
+        StartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(start_flag ==0){
+                    byte[] to_sned = toByteArray("70");
+                    MyApp.driver.WriteData(to_sned, to_sned.length);
+                    start_flag=1;
+                    StartBtn.setText("結束");
+                }
+                else{
+                    byte[] to_sned = toByteArray("71");
+                    MyApp.driver.WriteData(to_sned, to_sned.length);
+                    start_flag=0;
+                    StartBtn.setText("開始");
+                }
+            }
+        });
 
         AddPowerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -173,24 +189,29 @@ public class MainActivity extends Activity {
 
                         if(value1 == 1){
                             mode_text.setText("拍打");
-                            //Start button here and flag
+                            start_flag=1;
+                            StartBtn.setText("結束");
                         }
                         else if(value1 == 2){
                             mode_text.setText("按壓");
-                            //Start button here and flag
+                            start_flag=1;
+                            StartBtn.setText("結束");
                         }
                         else if(value1 == 3){
                             mode_text.setText("揉捏");
-                            //Start button here and flag
+                            start_flag=1;
+                            StartBtn.setText("結束");
                         }
                         else if(value1 == 4){
                             mode_text.setText("停止");
-                            //Start button here and flag
+                            start_flag=0;
+                            StartBtn.setText("開始");
                         }
 
                         if(value2 ==0) {
                             state_text.setText("脫落");
-                            //Start button here and flag
+                            start_flag=0;
+                            StartBtn.setText("結束");
                         }
                         else {
                             state_text.setText("正常");
@@ -219,7 +240,7 @@ public class MainActivity extends Activity {
         mode_text = (EditText) findViewById(R.id.mode_text);
         state_text = (EditText) findViewById(R.id.state_text);
 
-        //Start button here
+        StartBtn = (Button) findViewById(R.id.start_btn);
         AddPowerBtn = (Button) findViewById(R.id.add_power_btn);
         MinusPowerBtn = (Button) findViewById(R.id.minus_power_btn);
         ConnectBtn = (Button) findViewById(R.id.connect_btn);
@@ -229,7 +250,7 @@ public class MainActivity extends Activity {
         ConnectBtn.setText("裝置連線");
         ConnectBtn.setEnabled(true);
 
-        //Start button here
+        StartBtn.setEnabled(false);
         AddPowerBtn.setEnabled(false);
         MinusPowerBtn.setEnabled(false);
         TurnOnBtn.setEnabled(false);
@@ -270,7 +291,7 @@ public class MainActivity extends Activity {
                                     Toast.LENGTH_SHORT).show();
                             ConnectBtn.setText("連線成功");
                             ConnectBtn.setEnabled(false);
-                            //Start button here
+                            StartBtn.setEnabled(true);
                             AddPowerBtn.setEnabled(true);
                             MinusPowerBtn.setEnabled(true);
                             TurnOnBtn.setEnabled(true);
