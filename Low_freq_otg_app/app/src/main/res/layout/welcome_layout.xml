@@ -40,7 +40,7 @@
             android:layout_weight="15"
             android:background="@android:color/white"
             android:gravity="center"
-            android:text="蝸牛手建館\n\n\n 作者: 蔡輔元\n"
+            android:text="蝸牛手建館\n\n\n"
             android:textSize="20sp" />
 
         <TextView
